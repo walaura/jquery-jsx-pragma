@@ -1,0 +1,1 @@
+export const reloadEventname = 'Xx_query_xX:reload'
