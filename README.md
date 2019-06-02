@@ -1,32 +1,52 @@
-Starter React App on Glitch
+JReact
 ===========================
 
-This app is a very small scaffold to get you started using React and Webpack.
+JReact is a modern declarative Ui framework inspired by React that uses the full power of jQuery under the hood.
 
-This project relates to video 2 of 5 in the [React Starter Kit](https://glitch.com/react-starter-kit) video series.
+```jsx
+import Jreact, {render} from '../jreact/index';
 
-[![](https://cdn.glitch.com/71d3e262-edb4-456f-8703-48a1247b894f%2Fstarter-react.png?1513174880291)](https://www.youtube.com/watch?v=SxuN26-_fls)
+import App from './components/App';
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+render(() => <App/>, document.getElementById('app'));
+```
 
-Your Project
-------------
+## Usage
+Set your jsx pragma to Jreact in `babelrc`
 
-On the front-end,
-- edit files in `app` folder, it contains all the React stuff
-- drag in `assets`, like images or music, to add them to your project
+```js
+{
+  "presets": [
+    "@babel/preset-env", 
+    ["@babel/preset-react",{
+      "pragma": "Jreact",
+      "throwIfNamespace": false 
+    }
+    ]
+  ]
+}
+```
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+Then do not use fragments and make sure to escape your html.
 
+You can also use `useState` and `useEffect` hooks.
 
-By [Glitch](https://glitch.com/)
--------------------
+```jsx
+import Jreact, {useState, useEffect} from '../../jreact/index';
 
-Glitch is the friendly commmunity where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-[Find out more](https://glitch.com/about).
-
-\ ゜o゜)ノ
+const Clock = ({children}) => {
+  const [time, setTime] = useState(Date.now())
+  useEffect(()=>{
+    setInterval(()=>{
+      setTime(Date.now())
+    },1000)
+  },[])
+  return (
+    <div>
+      {new Date(time).getHours()}:
+      {new Date(time).getMinutes()}:
+      {new Date(time).getSeconds()}
+    </div>
+  )
+}
+```
