@@ -2,10 +2,10 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "starter-react",
+  "name": "jreact-lib",
   "version": "0.0.1",
-  "description": "A small scaffold to get you started using React with Webpack",
-  "main": "server.js",
+  "description": "React for the 2.0 web",
+  "main": "jreact/index.js",
   "scripts": {
     "build": "webpack --mode=development",
     "start": "webpack --mode=development && node server.js"
@@ -26,7 +26,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/starter-react"
+    "url": "https://github.com/walaura/jquery-jsx-pragma"
   },
   "license": "MIT",
   "keywords": [
