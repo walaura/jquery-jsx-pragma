@@ -1,7 +1,7 @@
 JReact
 ===========================
 
-JReact is a modern declarative Ui framework inspired by React that uses the full power of jQuery under the hood.
+JReact is a modern declarative UI framework inspired by React that uses the full power of jQuery under the hood.
 
 ```jsx
 import Jreact, {render} from 'jreact';
